@@ -1,0 +1,41 @@
+client
+dev tap
+proto tcp
+# Определяем MTU такой же, как и на сервере
+tun-mtu 1500
+# Указываем узел и порт подключения
+# Тут оба наши серва. Если первый недоступен - подключается к второму
+remote 185.231.153.5 1194
+remote 62.113.113.199 1194
+# Отказываемся от постоянного прослушивания порта
+nobind
+# Опция, которая позволяет не перечитывать ключи для каждого соединения
+persist-key
+persist-tun
+# Корректируем MSS
+mssfix
+# Указываем, что будем использовать TA как TLS-клиент
+key-direction 1
+ns-cert-type server
+remote-cert-tls server
+
+auth sha1
+cipher AES-128-CBC
+verb 4
+keepalive 10 40
+
+<ca>
+{ca_crt}
+</ca>
+
+<tls-auth>
+{ta_key}
+</tls-auth>
+
+<cert>
+{client_crt}
+</cert>
+
+<key>
+{client_key}
+</key>

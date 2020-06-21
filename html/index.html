@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>VPN ADMIN</title>
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body>
+
+<script src="main.js"></script>
+
+<table border="1" id="validusers">
+    <caption>Существующие пользователи:</caption>
+    <tr>
+        <th>Имя</th>
+        <th>Ключ</th>
+        <th>Действия</th>
+    </tr>
+</table>
+
+
+<br>
+
+<table border="1" id="revokeusers">
+    <caption>Отозваные пользователи:</caption>
+    <tr>
+        <th>Имя</th>
+        <th>Ключ</th>
+        <th>Действия</th>
+    </tr>
+</table>
+
+<br>
+
+<button onclick="apirequest_adduser()">Добавить пользователя</button>
+<button onclick="apirequest_getusers()">Обновить</button>
+
+<script>
+    apirequest_getusers();
+</script>
+
+</body>
+</html>
